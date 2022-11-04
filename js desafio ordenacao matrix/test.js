@@ -1,4 +1,4 @@
-let arr = [
+let senha = [
   "0110100000",
   "1001011111",
   "1110001010",
@@ -11,31 +11,21 @@ let arr = [
   "1000011000",
 ];
 
-
-
 const generalLength = 10;
 
-var xArr = new Array(generalLength);
+let tempArr = [];
+let finalArr = [];
 for (let i = 0; i < generalLength; i++) {
-  xArr[i] = new Array(generalLength);
-}
-
-ordenaArr(arr)
-
-function ordenaArr(matrix) {
-  let tempArr = [];
-  let finalArr = [];
-  for (let i = 0; i < generalLength; i++) {
-    for (let ii = 0; ii < generalLength; ii++) {
-      tempArr[ii] = matrix[ii][i]; //pega o primeiro valor de cada array e coloca em um array
-    }
-
-    finalArr[i] = descobreZeros(tempArr.toString()) //verifica a quantidade de zeros de cada valor e coloca em um array
+  for (let ii = 0; ii < generalLength; ii++) {
+    tempArr[ii] = senha[ii][i]; //pega o primeiro valor de cada array e coloca em um array
   }
-  
-  console.log(finalArr)
-  return finalArr;
+
+  finalArr[i] = descobreZeros(tempArr.toString()); //verifica a quantidade de zeros de cada valor e coloca em um array
 }
+
+finalArr = parseInt(finalArr.join(""), 2);
+console.log(finalArr);
+return finalArr;
 
 function descobreZeros(string) {
   let zeros = 0;
@@ -54,5 +44,3 @@ function descobreZeros(string) {
     return 1; //caso tenha ou igual uns
   }
 }
-
-
