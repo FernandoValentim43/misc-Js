@@ -1,27 +1,31 @@
-let string =
+let texto =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua";
 
-string = string.replaceAll(" ", ""); //formata a string
+texto = texto.replaceAll(" ", ""); //formata a texto
 
-let key = 2
+let k = 2
 
-let subString = ["a", "em", "i", "el"];
-let  grid = [...Array(subString.length)].map(e => Array(2));
+let queries = ["a", "em", "i", "el"];
 
-for (let j = 0; j < subString.length; j++) {
-  for (let i = 0; i < subString.length; i++) {
-    grid[i][0] = string.split(subString[i]).length - 1;
-     grid[j][1] = subString[j]
+//cria um grid 
+let  grid = [...Array(queries.length)].map(e => Array(2));
+
+//adiciona o numero de recorrencias e cada valor no grid
+for (let j = 0; j < queries.length; j++) {
+  for (let i = 0; i < queries.length; i++) {
+    grid[i][0] = texto.split(queries[i]).length - 1;
+     grid[j][1] = queries[j]
   }
 }
 
+//ordena o grid para facilitar
 grid.sort(function(a,b) {
     return b[0]-a[0] 
 });
 
-
+//exibe os K primeiros valores
 let arrResult = [];
-for(let i = 0; i < key ; i++) {
+for(let i = 0; i < k ; i++) {
     arrResult[i] = grid[i][1]
 }
 
