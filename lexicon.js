@@ -15,7 +15,7 @@ function permutations(str) {
   }
   
 
-  let nome = "abcde"
+ 
   if(nome == undefined || nome.length === 2) {
     console.log("sem resposta")
   } else {
