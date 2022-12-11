@@ -3,13 +3,14 @@ const random = () => {
 };
 
 const wait = (msg) => {
-  setTimeout(() => {
-    console.log({ msg });
-  }, random());
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+        if(msg != 2) {
+            reject("error")
+        }
+      resolve(msg);
+    }, random());
+  });
 };
 
-
-wait(1);
-wait(2);
-wait(3);
-wait(4);
+wait("1").then(response => console.log(response)).catch(e => console.log(e))
